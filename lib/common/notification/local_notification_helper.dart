@@ -14,9 +14,13 @@ class LocalNotificationHelper {
 
   Future<void> init() async {
     final initializationSettings = await _getPlatformSettings();
+    flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.requestPermission();
     await flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
-      onSelectNotification: selectNotification,
+      onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
     );
 
     // /// get message when app kill
@@ -73,15 +77,14 @@ class LocalNotificationHelper {
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings(NotificationConfig
             .notificationIconPath); //TODO: set notification icon
-    const IOSInitializationSettings initializationSettingsIOS =
-        IOSInitializationSettings(
-            // uncomment if want to support ios <10.
-            // onDidReceiveLocalNotification: onDidReceiveLocalNotification,
+    final DarwinInitializationSettings initializationSettingsDarwin =
+        DarwinInitializationSettings(
+            // onDidReceiveLocalNotification: onDidReceiveLocalNotification
             );
 
-    return const InitializationSettings(
+    return InitializationSettings(
       android: initializationSettingsAndroid,
-      iOS: initializationSettingsIOS,
+      iOS: initializationSettingsDarwin,
     );
   }
 
@@ -110,8 +113,8 @@ class LocalNotificationHelper {
       //   notificationSoundPath.split('.').first,
       // ),
     );
-    final IOSNotificationDetails iOSPlatformChannelSpecifics =
-        IOSNotificationDetails(
+    final DarwinNotificationDetails iosNotificationDetails =
+        DarwinNotificationDetails(
       presentAlert: true,
       // Present an alert when the notification is displayed and the application is in the foreground (only from iOS 10 onwards)
       presentBadge: true,
@@ -126,10 +129,26 @@ class LocalNotificationHelper {
       //subtitle: String?, //Secondary description  (only from iOS 10 onwards)
       threadIdentifier: _notificationId.toString(),
     );
+    // final IOSNotificationDetails iOSPlatformChannelSpecifics =
+    //     IOSNotificationDetails(
+    //   presentAlert: true,
+    //   // Present an alert when the notification is displayed and the application is in the foreground (only from iOS 10 onwards)
+    //   presentBadge: true,
+    //   // Present the badge number when the notification is displayed and the application is in the foreground (only from iOS 10 onwards)
+    //   presentSound: true,
+    //   // Play a sound when the notification is displayed and the application is in the foreground (only from iOS 10 onwards)
+    //   // sound:
+    //   //     notificationSoundPath, // Specifics the file pat  h to play (only from iOS 10 onwards)
+    //   badgeNumber: 1,
+    //   // The application's icon badge number
+    //   //attachments: List<IOSNotificationAttachment>?, (only from iOS 10 onwards)
+    //   //subtitle: String?, //Secondary description  (only from iOS 10 onwards)
+    //   threadIdentifier: _notificationId.toString(),
+    // );
 
     final platformChannelSpecifics = NotificationDetails(
       android: androidPlatformChannelSpecifics,
-      iOS: iOSPlatformChannelSpecifics,
+      iOS: iosNotificationDetails,
     );
 
     _notificationId++;
@@ -145,4 +164,6 @@ class LocalNotificationHelper {
   Future<dynamic> selectNotification(String? payload) async {
     //Handle notification tapped logic here
   }
+
+  void onDidReceiveNotificationResponse(NotificationResponse details) {}
 }

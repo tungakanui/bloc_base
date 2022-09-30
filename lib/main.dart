@@ -4,6 +4,7 @@ import 'package:base_bloc_3/common/constants.dart';
 import 'package:base_bloc_3/common/notification/local_notification_helper.dart';
 import 'package:base_bloc_3/common/notification/push_notification_helper.dart';
 import 'package:base_bloc_3/di/di_setup.dart';
+import 'package:base_bloc_3/gen/fonts.gen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -48,6 +49,7 @@ Future<void> main() async {
             LocalizationConstants.enUSLocale,
             LocalizationConstants.viLocale
           ],
+          startLocale: LocalizationConstants.viLocale,
           path: LocalizationConstants.path,
           fallbackLocale: LocalizationConstants.enUSLocale,
           child: MyApp(),
@@ -56,7 +58,6 @@ Future<void> main() async {
     ),
   );
 }
-
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
@@ -77,8 +78,10 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.blue,
+            fontFamily: FontFamily.lexend,
           ),
           routerDelegate: _appRoute.delegate(),
           routeInformationParser: _appRoute.defaultRouteParser(),

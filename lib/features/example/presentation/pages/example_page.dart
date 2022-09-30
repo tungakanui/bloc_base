@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../common/index.dart';
+import '../../../../common/widgets/buttons/app_button.dart';
 import '../../domain/entity/player_entity.dart';
 import '../bloc/example_bloc.dart';
 
@@ -45,19 +46,42 @@ class _ExamplePageState
   @override
   Widget renderUI(BuildContext context) {
     return BaseScaffold(
-      body: Column(
-        children: [
-          const HeaderWidget(),
-          Expanded(
-            child: CustomListViewSeparated<PlayerEntity>(
-              separatorBuilder: (c, i) => const Divider(),
-              controller: bloc.pagingController,
-              builder: (c, item, i) => PlayerItem(
-                data: item,
-              ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            AppButton(
+              title: "ABCDE",
+              onPressed: () {},
             ),
-          ),
-        ],
+            SizedBox(
+              height: 32,
+            ),
+            AppButton(
+              title: "ABCDE",
+              isDisable: true,
+              onPressed: () {},
+            ),
+            SizedBox(
+              height: 32,
+            ),
+            AppButton(
+              title: "ABCDE",
+              isOutlined: true,
+              onPressed: () {},
+            ),
+            // const HeaderWidget(),
+            // Expanded(
+            //   child: CustomListViewSeparated<PlayerEntity>(
+            //     separatorBuilder: (c, i) => const Divider(),
+            //     controller: bloc.pagingController,
+            //     builder: (c, item, i) => PlayerItem(
+            //       data: item,
+            //     ),
+            //   ),
+            // ),
+          ],
+        ),
       ),
     );
   }
@@ -77,7 +101,7 @@ class HeaderWidget extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Assets.images.icProfile.svg(width: 16.w, height: 16.h),
+          Assets.svg.icProfile.svg(width: 16.w, height: 16.h),
           SizedBox(
             width: 8.w,
           ),

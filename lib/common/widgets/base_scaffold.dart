@@ -82,7 +82,6 @@ class BaseScaffold extends StatelessWidget {
             else
               const SizedBox.shrink(),
             SafeArea(
-              top: false,
               bottom: isBottom ?? true,
               child: Padding(
                 padding: EdgeInsets.only(

@@ -26,10 +26,84 @@ class $AssetsEnvGen {
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+}
 
-  /// File path: assets/images/ic_profile.svg
-  SvgGenImage get icProfile =>
-      const SvgGenImage('assets/images/ic_profile.svg');
+class $AssetsSvgGen {
+  const $AssetsSvgGen();
+
+  /// File path: assets/svg/ic_add.svg
+  SvgGenImage get icAdd => const SvgGenImage('assets/svg/ic_add.svg');
+
+  /// File path: assets/svg/ic_arrow_left.svg
+  SvgGenImage get icArrowLeft =>
+      const SvgGenImage('assets/svg/ic_arrow_left.svg');
+
+  /// File path: assets/svg/ic_camera.svg
+  SvgGenImage get icCamera => const SvgGenImage('assets/svg/ic_camera.svg');
+
+  /// File path: assets/svg/ic_cancel.svg
+  SvgGenImage get icCancel => const SvgGenImage('assets/svg/ic_cancel.svg');
+
+  /// File path: assets/svg/ic_car.svg
+  SvgGenImage get icCar => const SvgGenImage('assets/svg/ic_car.svg');
+
+  /// File path: assets/svg/ic_check.svg
+  SvgGenImage get icCheck => const SvgGenImage('assets/svg/ic_check.svg');
+
+  /// File path: assets/svg/ic_check_circle.svg
+  SvgGenImage get icCheckCircle =>
+      const SvgGenImage('assets/svg/ic_check_circle.svg');
+
+  /// File path: assets/svg/ic_close.svg
+  SvgGenImage get icClose => const SvgGenImage('assets/svg/ic_close.svg');
+
+  /// File path: assets/svg/ic_delete.svg
+  SvgGenImage get icDelete => const SvgGenImage('assets/svg/ic_delete.svg');
+
+  /// File path: assets/svg/ic_filter.svg
+  SvgGenImage get icFilter => const SvgGenImage('assets/svg/ic_filter.svg');
+
+  /// File path: assets/svg/ic_folder.svg
+  SvgGenImage get icFolder => const SvgGenImage('assets/svg/ic_folder.svg');
+
+  /// File path: assets/svg/ic_hamburger_menu.svg
+  SvgGenImage get icHamburgerMenu =>
+      const SvgGenImage('assets/svg/ic_hamburger_menu.svg');
+
+  /// File path: assets/svg/ic_hide.svg
+  SvgGenImage get icHide => const SvgGenImage('assets/svg/ic_hide.svg');
+
+  /// File path: assets/svg/ic_lock.svg
+  SvgGenImage get icLock => const SvgGenImage('assets/svg/ic_lock.svg');
+
+  /// File path: assets/svg/ic_logout.svg
+  SvgGenImage get icLogout => const SvgGenImage('assets/svg/ic_logout.svg');
+
+  /// File path: assets/svg/ic_money.svg
+  SvgGenImage get icMoney => const SvgGenImage('assets/svg/ic_money.svg');
+
+  /// File path: assets/svg/ic_photo_library.svg
+  SvgGenImage get icPhotoLibrary =>
+      const SvgGenImage('assets/svg/ic_photo_library.svg');
+
+  /// File path: assets/svg/ic_profile.svg
+  SvgGenImage get icProfile => const SvgGenImage('assets/svg/ic_profile.svg');
+
+  /// File path: assets/svg/ic_right_arrow_arrow.svg
+  SvgGenImage get icRightArrowArrow =>
+      const SvgGenImage('assets/svg/ic_right_arrow_arrow.svg');
+
+  /// File path: assets/svg/ic_search.svg
+  SvgGenImage get icSearch => const SvgGenImage('assets/svg/ic_search.svg');
+
+  /// File path: assets/svg/ic_show.svg
+  SvgGenImage get icShow => const SvgGenImage('assets/svg/ic_show.svg');
+
+  /// File path: assets/svg/ic_time.svg
+  SvgGenImage get icTime => const SvgGenImage('assets/svg/ic_time.svg');
+
+  /// File path: assets/svg/ic_warning.svg
+  SvgGenImage get icWarning => const SvgGenImage('assets/svg/ic_warning.svg');
 }
 
 class $AssetsTranslationsGen {
@@ -47,6 +121,7 @@ class Assets {
 
   static const $AssetsEnvGen env = $AssetsEnvGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsSvgGen svg = $AssetsSvgGen();
   static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 
