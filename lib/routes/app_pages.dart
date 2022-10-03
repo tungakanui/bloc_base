@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_bloc_3/features/core/presentation/pages/core_page.dart';
-import 'package:base_bloc_3/features/example/presentation/pages/example_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 

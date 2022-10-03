@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../app_theme/app_styles.dart';
-
 class BaseAppBar extends StatelessWidget {
   final String? title;
   final String? icon;

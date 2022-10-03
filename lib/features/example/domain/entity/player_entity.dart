@@ -1,3 +1,5 @@
+import '../../data/model/player/player.dart';
+
 class PlayerEntity {
   final int? id;
   final String? firstName;
@@ -5,7 +7,7 @@ class PlayerEntity {
   final String? heightInches;
   final String? lastName;
   final String? position;
-  final TeamEntity? team;
+  final Team? team;
   final String? weightPounds;
 
   PlayerEntity({
@@ -18,24 +20,15 @@ class PlayerEntity {
     this.team,
     this.weightPounds,
   });
-}
 
-class TeamEntity {
-  final int? id;
-  final String? abbreviation;
-  final String? city;
-  final String? conference;
-  final String? division;
-  final String? fullName;
-  final String? name;
-
-  TeamEntity({
-    this.id,
-    this.abbreviation,
-    this.city,
-    this.conference,
-    this.division,
-    this.fullName,
-    this.name,
-  });
+  factory PlayerEntity.fromModel(Player player) => PlayerEntity(
+        id: player.id,
+        firstName: player.firstName,
+        heightFeet: player.heightFeet,
+        heightInches: player.heightInches,
+        lastName: player.lastName,
+        position: player.position,
+        team: player.team,
+        weightPounds: player.weightPounds,
+      );
 }

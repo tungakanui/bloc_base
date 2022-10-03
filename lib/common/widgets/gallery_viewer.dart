@@ -6,9 +6,6 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../../gen/assets.gen.dart';
-import '../index.dart';
-
 class _Const {
   static const animationDuration = 300;
 

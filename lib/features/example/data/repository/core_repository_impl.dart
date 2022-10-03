@@ -24,7 +24,8 @@ class ExampleRepoImpl implements ExampleRepo {
         limit: limit,
         offset: offset,
       );
-      return right(result.data ?? []);
+      return right(
+          (result.data ?? []).map((e) => PlayerEntity.fromModel(e)).toList());
     } on DioError catch (exception) {
       return left(exception.baseError);
     }
