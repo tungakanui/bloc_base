@@ -60,18 +60,18 @@ class _XBottomNavigationBar extends StatelessWidget {
       items: [
         _buildBottomNavItem(
           label: 'Trò chuyện',
-          icon: Icon(Icons.add),
-          activeIcon: Icon(Icons.add),
+          icon: const Icon(Icons.add),
+          activeIcon: const Icon(Icons.add),
         ),
         _buildBottomNavItem(
           label: 'Trò chuyện',
-          icon: Icon(Icons.add),
-          activeIcon: Icon(Icons.add),
+          icon: const Icon(Icons.add),
+          activeIcon: const Icon(Icons.add),
         ),
         _buildBottomNavItem(
           label: 'Trò chuyện',
-          icon: Icon(Icons.add),
-          activeIcon: Icon(Icons.add),
+          icon: const Icon(Icons.add),
+          activeIcon: const Icon(Icons.add),
         ),
       ],
       currentIndex: index,

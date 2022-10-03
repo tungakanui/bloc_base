@@ -50,36 +50,16 @@ class _ExamplePageState
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            AppButton(
-              title: "ABCDE",
-              onPressed: () {},
+            const HeaderWidget(),
+            Expanded(
+              child: CustomListViewSeparated<PlayerEntity>(
+                separatorBuilder: (c, i) => const Divider(),
+                controller: bloc.pagingController,
+                builder: (c, item, i) => PlayerItem(
+                  data: item,
+                ),
+              ),
             ),
-            SizedBox(
-              height: 32,
-            ),
-            AppButton(
-              title: "ABCDE",
-              isDisable: true,
-              onPressed: () {},
-            ),
-            SizedBox(
-              height: 32,
-            ),
-            AppButton(
-              title: "ABCDE",
-              isOutlined: true,
-              onPressed: () {},
-            ),
-            // const HeaderWidget(),
-            // Expanded(
-            //   child: CustomListViewSeparated<PlayerEntity>(
-            //     separatorBuilder: (c, i) => const Divider(),
-            //     controller: bloc.pagingController,
-            //     builder: (c, item, i) => PlayerItem(
-            //       data: item,
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

@@ -77,12 +77,12 @@ class LocalNotificationHelper {
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings(NotificationConfig
             .notificationIconPath); //TODO: set notification icon
-    final DarwinInitializationSettings initializationSettingsDarwin =
+    const DarwinInitializationSettings initializationSettingsDarwin =
         DarwinInitializationSettings(
             // onDidReceiveLocalNotification: onDidReceiveLocalNotification
             );
 
-    return InitializationSettings(
+    return const InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: initializationSettingsDarwin,
     );

@@ -40,6 +40,7 @@ Future<void> main() async {
   await Firebase.initializeApp();
   await getIt<PushNotificationHelper>().initialize();
   await getIt<LocalNotificationHelper>().init();
+
   runApp(
     DevicePreview(
       enabled: false, // !kReleaseMode,

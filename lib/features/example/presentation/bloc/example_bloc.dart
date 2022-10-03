@@ -25,14 +25,14 @@ class ExampleBloc extends BaseBloc<ExampleEvent, ExampleState>
       await event.when(
         getData: () => onGetData(emit),
         showMessage: () => onShowMessage(emit),
-        getPlayers: (List<Player> players, int offset) =>
+        getPlayers: (List<PlayerEntity> players, int offset) =>
             onGetPlayers(emit, players, offset),
       );
     });
   }
 
   final ExampleUseCase _coreUseCase;
-  final PagingController<int, Player> pagingController =
+  final PagingController<int, PlayerEntity> pagingController =
       PagingController(firstPageKey: 0);
 
   Future onGetData(Emitter<ExampleState> emit) async {
@@ -51,8 +51,8 @@ class ExampleBloc extends BaseBloc<ExampleEvent, ExampleState>
     emit(state.copyWith(message: "Error"));
   }
 
-  Future onGetPlayers(
-      Emitter<ExampleState> emit, List<Player> players, int offset) async {
+  Future onGetPlayers(Emitter<ExampleState> emit, List<PlayerEntity> players,
+      int offset) async {
     final res = await _coreUseCase.getData(offset: offset, limit: 25);
     pagingControllerOnLoad(offset, pagingController, res, onSuccess: () {
       emit(state.copyWith(players: pagingController.itemList));
